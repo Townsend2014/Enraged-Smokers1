@@ -49,10 +49,14 @@
         console.log(response);
 
         // Transfer content to HTML
-        $(".city").html("<h3>" + response.name + " Weather Details</h3>");
+        $(".city").html("<h4>" + response.name + " Weather Details</h4>");
         $(".wind").text("Wind Speed: " + response.wind.speed);
         $(".humidity").text("Humidity: " + response.main.humidity);
         $(".temp").text("Temperature (F) " + response.main.temp);
+        $("#results").css({ 
+          background: "transparent url('http://www.emmitsburg.net/humor/pictures/2008/cwp7.jpg')"
+           
+      });
 
         // Log the data in the console as well
         console.log("Wind Speed: " + response.wind.speed);
