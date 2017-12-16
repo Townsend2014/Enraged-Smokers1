@@ -28,11 +28,11 @@
 
 
    function jeffAwesome(){
-    var name = document.getElementById("address").value
+    var zipCode = document.getElementById("address").value
     console.log(name);
 
     var key = "id=524901&APPID=3181725de39981ba63d424ec8b057a17";
-    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + name + "&" + key;
+    var queryURL = "http://api.openweathermap.org/data/2.5/weather?zip=" + zipCode + "&" + key;
 
 
         $.ajax({
