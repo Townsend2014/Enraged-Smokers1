@@ -7,6 +7,7 @@
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 <!--   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/> -->
@@ -132,13 +133,15 @@
       <div class="row">
         <div class="col s12 center">
           <h3><i class="mdi-content-send brown-text"></i></h3>
-          <h4>Results table here?</h4>
-          <p class="left-align light">Today's your lucky day. Look around, kiddo - it's all yours. You are 
-            now the owner of this fine establishment. Free? Oh ladies, cover your ears. No... not free. Look, 
-            hey... this is a squeaky clean, highly profitable (at least potentially), local institution. Look 
-            the bottom with favor by the chamber of commerce, better business bureau at three-hundred and twelve 
-            thousand dollars, it's a steal.Don't you get it? On the outside it's a nail salon right, on the 
-            inside it's the best money laundering a growing boy could ask for. Wait, wait! Come back here. Sit.</p>
+          <h4>Previous Searches</h4>
+          <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title"></h3>
+              </div>
+              <div class="panel-body">
+                  <div id="full-zipcode-list"></div>
+              </div>
+          </div>
         </div>
       </div>
 
@@ -207,6 +210,7 @@
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
   <script src="js/weathertest.js"></script>
+  <script src="js/firebase.js"></script>
   <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDH-x4BSPWpRzYjUEpubsuDp1LioaiZp-4&callback=initMap">
   </script>
