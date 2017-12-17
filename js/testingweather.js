@@ -48,6 +48,8 @@ $(document).ready(function(){
   $("#submit").on("click", function(){
     var name = document.getElementById("address").value
 
+    //if form.val = 0, {everything below}
+
     // var queryURL = "http://api.openweathermap.org/data/2.5/weather?zip=" + zipCode + ",us" + "&" + key;
     var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + name + "&" + key;
 
