@@ -7,12 +7,13 @@
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 <!--   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/> -->
 </head>
 <body>
-  <nav class="white" role="navigation">
+  <!-- <nav class="white" role="navigation">
     <div class="nav-wrapper container">
       <a id="logo-container" href="#" class="brand-logo">Enraged Smoke</a>
       <ul class="right hide-on-med-and-down">
@@ -24,15 +25,15 @@
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
-  </nav>
+  </nav> -->
 
   <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
       <div class="container">
         <br><br>
-        <h1 class="header center teal-text text-lighten-2">Out and About</h1>
+        <h1 class="header center teal-text text-lighten-2" style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">Out and About</h1>
         <div class="row center">
-          <h5 class="header col s12 light">Your one stop shop for current weather conditions and a map!</h5>
+          <h4 class="header col s12 light" style="color: white; font-weight: bold; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">Find Current Weather Conditions and a Map Of Bars Near You!</h5>
         </div>
         <div class="row center">
           <!-- if we need a button here this below will work -->
@@ -61,7 +62,7 @@
                     <i class="material-icons center">directions_run</i>
                   </button> -->
 
-                 <input id="address" id="zipCode" type="text" placeholder="Zip Code" type="textbox"/>
+                 <input id="address" id="zipCode" type="text" placeholder="Zip Code" type="textbox"/ required>
                 <button class="btn2 waves-effect waves-light green z-depth-5" type="submit" name="action" id="submit" type="button" value="submit">Submit
                     <i class="material-icons center">directions_run</i>
                     
@@ -86,8 +87,10 @@
             <h2 class="center green-text"><i class="material-icons z-depth-5 circle">wallpaper</i></h2>
       <!--       <h5 class="center">test </h5> -->
 
-      <div id="mapimage" style="height: 400px;" class="z-depth-5">
-          </div>
+
+      <div id="map" style="height: 400px;" class="z-depth-5">
+
+          </div>            
           </div>
         </div>
          <!--                            Weather App Results                       -->
@@ -104,7 +107,7 @@
             <div class="temp"></div>
             <br>
           </div>
-            <p class="light center">Results!</p>
+            <!-- <p class="light center">Results!</p> -->
           </div>
         </div>
       </div>
@@ -132,13 +135,15 @@
       <div class="row">
         <div class="col s12 center">
           <h3><i class="mdi-content-send brown-text"></i></h3>
-          <h4>Results table here?</h4>
-          <p class="left-align light">Today's your lucky day. Look around, kiddo - it's all yours. You are 
-            now the owner of this fine establishment. Free? Oh ladies, cover your ears. No... not free. Look, 
-            hey... this is a squeaky clean, highly profitable (at least potentially), local institution. Look 
-            the bottom with favor by the chamber of commerce, better business bureau at three-hundred and twelve 
-            thousand dollars, it's a steal.Don't you get it? On the outside it's a nail salon right, on the 
-            inside it's the best money laundering a growing boy could ask for. Wait, wait! Come back here. Sit.</p>
+          <h4>Previous Searches</h4>
+          <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title"></h3>
+              </div>
+              <div class="panel-body">
+                  <div id="full-zipcode-list"></div>
+              </div>
+          </div>
         </div>
       </div>
 
@@ -146,7 +151,7 @@
   </div>
 
 
-  <div class="parallax-container valign-wrapper">
+  <!-- <div class="parallax-container valign-wrapper">
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
@@ -155,7 +160,7 @@
       </div>
     </div>
     <div class="parallax"><img src="smoke3.png" alt="Unsplashed background img 3"></div>
-  </div>
+  </div> -->
 
 
 
@@ -202,14 +207,109 @@
 
   <!--  Scripts-->
 
+  <script>
+
+      //merged google geocoder + google places api for this function
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 8,
+          center: {lat: -34.397, lng: 150.644}
+        });
+        var geocoder = new google.maps.Geocoder();
+        document.getElementById('submit').addEventListener('click', function() {
+          geocodeAddress(geocoder, map);
+
+        });
+        infowindow = new google.maps.InfoWindow();
+        var service = new google.maps.places.PlacesService(map);
+        service.nearbySearch({
+          location: {lat: -34.397, lng: 150.644},
+          radius: 500,
+          type: ['cafe']
+        }, callback);
+
+        
+        
+      }
+
+      //custom function that can search google places by lat/lng arguments
+      function initPlacesMap(lat,lng) {
+        var location = {lat: lat, lng: lng};
+
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: location,
+          zoom: 14
+        });
+
+        infowindow = new google.maps.InfoWindow();
+        var service = new google.maps.places.PlacesService(map);
+        service.nearbySearch({
+          location: location,
+          radius: 5000,
+          type: ['bar']
+        }, callback);
+      }
+
+      //need this for geocode(boilerplate from Google Documentation)
+      function geocodeAddress(geocoder, resultsMap) {
+        var address = document.getElementById('address').value;
+        geocoder.geocode({'address': address}, function(results, status) {
+          console.log(results);
+          if (status === 'OK') {
+            resultsMap.setCenter(results[0].geometry.location);
+            var marker = new google.maps.Marker({
+              map: resultsMap,
+              position: results[0].geometry.location
+            });
+            var lat = results[0].geometry.location.lat();
+            var lng = results[0].geometry.location.lng();
+            console.log("latitude is: " + lat);
+            console.log("longitude is: " + lng);
+            initPlacesMap(lat,lng);
+
+          } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+          
+
+        });
+      }
+
+      //need this for Places functionality
+      function callback(results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            createMarker(results[i]);
+          }
+        }
+      }
+
+      //need this for Places functionality(creates markers)
+      function createMarker(place) {
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.setContent(place.name);
+          infowindow.open(map, this);
+        });
+      }
+    </script>
+
+
+
 
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
-  <script src="js/weathertest.js"></script>
-  <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDH-x4BSPWpRzYjUEpubsuDp1LioaiZp-4&callback=initMap">
-  </script>
+
+  <script src="js/testingweather.js"></script>
+  <script src="js/firebase.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDH-x4BSPWpRzYjUEpubsuDp1LioaiZp-4&libraries=places&callback=initMap" async defer></script>
+
  <!--  <script src="js/googlemap.js"></script> -->
  
 
