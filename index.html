@@ -63,7 +63,7 @@
                     <i class="material-icons center">directions_run</i>
                   </button> -->
 
-                 <input id="address" id="zipCode" type="text" placeholder="Zip Code" type="textbox"/ required>
+                 <input id="address" id="zipCode" type="text" placeholder="Zip Code" type="textbox" class="form-control required">
                 <button class="btn2 waves-effect waves-light green z-depth-5" type="submit" name="action" id="submit" type="button" value="submit">Submit
                     <i class="material-icons center">directions_run</i>
                     
@@ -186,7 +186,7 @@
         </div>
         <div class="footer-copyright">
             <div class="container">
-                Made with <a class="green-text text-lighten-3" href="http://materializecss.com">Materialize</a><a class="white-text text-lighten-3"> via</a><a class="green-text text-lighten-3" href="https://github.com/Townsend2014/Enraged-Smokers"> Ravi Samay David William</a>
+                Made with <a class="green-text text-lighten-3" href="http://materializecss.com">Materialize</a><a class="white-text text-lighten-3"> via</a><a class="green-text text-lighten-3" href="https://github.com/Townsend2014/Enraged-Smokers"> Ravi Saymay David William</a>
             </div>
         </div>
     </footer>
@@ -237,6 +237,17 @@
     //need this for geocode(boilerplate from Google Documentation)
     function geocodeAddress(geocoder, resultsMap) {
         var address = document.getElementById('address').value;
+        var regex=/^[0-9]+$/;
+        if (!address.match(regex)) {
+          alert("Please Enter A Valid Zip Code");
+        }
+        else if (address.length == 0) {
+          alert("Please Enter A Valid Zip Code");
+        }
+        else if(address.length < 5) {
+          alert("Please Enter A Valid Zip Code");
+        }
+        else{
         geocoder.geocode({ 'address': address }, function(results, status) {
             console.log(results);
             if (status === 'OK') {
@@ -258,6 +269,7 @@
 
 
         });
+    }
     }
 
     //need this for Places functionality
