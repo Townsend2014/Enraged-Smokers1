@@ -237,6 +237,8 @@
     //need this for geocode(boilerplate from Google Documentation)
     function geocodeAddress(geocoder, resultsMap) {
         var address = document.getElementById('address').value;
+
+        //input validation, ensures user only enters a valid zip code
         var regex=/^[0-9]+$/;
         if (!address.match(regex)) {
           alert("Please Enter A Valid Zip Code");
@@ -244,7 +246,7 @@
         else if (address.length == 0) {
           alert("Please Enter A Valid Zip Code");
         }
-        else if(address.length < 5) {
+        else if(address.length < 5) {g
           alert("Please Enter A Valid Zip Code");
         }
         else{
@@ -296,7 +298,7 @@
 
 
         google.maps.event.addListener(marker, 'click', function() {
-            infowindow.setContent(place.name + '<br>' + place.vicinity + '<br>' + '<div>Open Now: ' + place.opening_hours.open_now + '</div>' + '<div>Rating: ' + place.rating + '</div>' + '<div>' + '<div><img src=' + photos[0].getUrl({ 'maxWidth': 150, 'maxHeight': 150 }) + '></div>');
+            infowindow.setContent('<div><strong>Name:</strong> ' + place.name + '</div>' + '<div><strong>Address: </strong>' + place.vicinity + '</div>' + '<div><strong>Open Now:</strong> ' + place.opening_hours.open_now + '</div>' + '<div><strong>Rating:</strong> ' + place.rating + '</div>' + '<div>' + '<div><img src=' + photos[0].getUrl({ 'maxWidth': 150, 'maxHeight': 150 }) + '></div>');
             infowindow.open(map, this);
 
         });
