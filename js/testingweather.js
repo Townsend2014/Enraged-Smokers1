@@ -47,8 +47,12 @@ $(document).ready(function(){
 
   $("#submit").on("click", function(){
     var name = document.getElementById("address").value
-
+    if (name.length == 0) {
+      $('.results').hide();
+    }
+    else {
     //if form.val = 0, {everything below}
+
 
     // var queryURL = "http://api.openweathermap.org/data/2.5/weather?zip=" + zipCode + ",us" + "&" + key;
     var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + name + "&" + key;
@@ -81,7 +85,8 @@ $(document).ready(function(){
         console.log("Wind Speed: " + response.wind.speed);
         console.log("Humidity: " + response.main.humidity);
         console.log("Temperature (F): " + response.main.temp);
-      });  
+      }); 
+      } 
   
 });
 
