@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Out and About</title>
 
-  <!-- CSS  -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-<!--   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/> -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Out and About</title>
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <!--   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/> -->
 </head>
+
 <body>
-  <nav class="white" role="navigation">
+    <!-- <nav class="white" role="navigation">
     <div class="nav-wrapper container">
       <a id="logo-container" href="#" class="brand-logo">Enraged Smoke</a>
       <ul class="right hide-on-med-and-down">
@@ -25,15 +26,15 @@
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
-  </nav>
-
-  <div id="index-banner" class="parallax-container">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <br><br>
-        <h1 class="header center teal-text text-lighten-2">Out and About</h1>
-        <div class="row center">
-          <h5 class="header col s12 light">Your one stop shop for current weather conditions and a map!</h5>
+  </nav> -->
+    <div id="index-banner" class="parallax-container">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <br>
+                <br>
+                <h1 class="header center teal-text text-lighten-2" style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">Out and About</h1>
+                <div class="row center">
+                    <h4 class="header col s12 light" style="color: white; font-weight: bold; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">Search For Bars and Current Weather Conditions!</h5>
         </div>
         <div class="row center">
           <!-- if we need a button here this below will work -->
@@ -55,14 +56,14 @@
         <div class="col s12 m3">
           <div class="icon-block">
             <h2 class="center green-text"><i class="material-icons z-depth-5 circle">flash_on</i></h2>
-            <h5 class="center">Weather App</h5>
+            <h5 class="center">Enter Zip Code</h5>
             <div>
 <!--                 <input id="zipCode" type="text" placeholder="85295" />
                 <button class="btn1 waves-effect waves-light green" type="submit" name="action">Submit
                     <i class="material-icons center">directions_run</i>
                   </button> -->
 
-                 <input id="address" id="zipCode" type="text" placeholder="Zip Code" type="textbox"/>
+                 <input id="address" id="zipCode" type="text" placeholder="Zip Code" type="textbox" class="form-control required">
                 <button class="btn2 waves-effect waves-light green z-depth-5" type="submit" name="action" id="submit" type="button" value="submit">Submit
                     <i class="material-icons center">directions_run</i>
                     
@@ -85,7 +86,7 @@
         <div class="col s12 m6">
           <div class="icon-block">
             <h2 class="center green-text"><i class="material-icons z-depth-5 circle">wallpaper</i></h2>
-      <!--       <h5 class="center">test </h5> -->
+             <h5 class="center">Bars</h5>
 
 
       <div id="map" style="height: 400px;" class="z-depth-5">
@@ -101,13 +102,13 @@
             <h2 class="center green-text"><i class="material-icons z-depth-5 circle">cloud_queue</i></h2>
             <h5 class="center">Current Weather</h5>
             <div id="results" class="z-depth-5">
-            <div class="city"></div>
-            <div class="wind"></div>
-            <div class="humidity"></div>
-            <div class="temp"></div>
-            <br>
-          </div>
-            <p class="light center">Results!</p>
+              <div class="city"></div>
+              <div class="wind"></div>
+              <div class="humidity"></div>
+              <div class="temp"></div>
+              <br>
+            </div>
+            <!-- <p class="light center">Results!</p> -->
           </div>
         </div>
       </div>
@@ -136,22 +137,19 @@
         <div class="col s12 center">
           <h3><i class="mdi-content-send brown-text"></i></h3>
           <h4>Previous Searches</h4>
-          <div class="panel panel-default">
-              <div class="panel-heading">
-                <h3 class="panel-title"></h3>
-              </div>
-              <div class="panel-body">
-                  <div id="full-zipcode-list"></div>
-              </div>
-          </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"></h3>
+                        </div>
+                        <div class="panel-body">
+                            <div id="full-zipcode-list"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-
     </div>
-  </div>
-
-
-  <div class="parallax-container valign-wrapper">
+    <!-- <div class="parallax-container valign-wrapper">
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
@@ -160,20 +158,9 @@
       </div>
     </div>
     <div class="parallax"><img src="smoke3.png" alt="Unsplashed background img 3"></div>
-  </div>
-
-
-
-
-
-            
-
-
-
-         
-
-  <footer class="page-footer teal">
-    <!-- <div class="container">
+  </div> -->
+    <footer class="page-footer teal">
+        <!-- <div class="container">
       <div class="row">
         <div class="col l6 s12">
           <h5 class="white-text">Cool Important Info</h5>
@@ -196,123 +183,134 @@
           </ul>
         </div>
       </div> -->
-    </div>
-    <div class="footer-copyright">
-      <div class="container">
-      Made with <a class="green-text text-lighten-3" href="http://materializecss.com">Materialize</a><a class="white-text text-lighten-3"> via</a><a class="green-text text-lighten-3" href="https://github.com/Townsend2014/Enraged-Smokers"> Ravi Samay David William</a>
-      </div>
-    </div>
-  </footer>
-
-
-  <!--  Scripts-->
-
-  <script>
-
-      //merged google geocoder + google places api for this function
-      function initMap() {
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                Made with <a class="green-text text-lighten-3" href="http://materializecss.com">Materialize</a><a class="white-text text-lighten-3"> via</a><a class="green-text text-lighten-3" href="https://github.com/Townsend2014/Enraged-Smokers"> Ravi Saymay David William</a>
+            </div>
+        </div>
+    </footer>
+    <!--  Scripts-->
+    <script>
+    //merged google geocoder + google places api for this function
+    function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 8,
-          center: {lat: -34.397, lng: 150.644}
+            zoom: 8,
+            center: { lat: 33.3528, lng: -111.7890 }
         });
         var geocoder = new google.maps.Geocoder();
         document.getElementById('submit').addEventListener('click', function() {
-          geocodeAddress(geocoder, map);
+            geocodeAddress(geocoder, map);
 
         });
         infowindow = new google.maps.InfoWindow();
         var service = new google.maps.places.PlacesService(map);
         service.nearbySearch({
-          location: {lat: -34.397, lng: 150.644},
-          radius: 500,
-          type: ['cafe']
+            location: { lat: -34.397, lng: 150.644 },
+            radius: 500,
+            type: ['bar']
         }, callback);
 
-        
-        
-      }
 
-      //custom function that can search google places by lat/lng arguments
-      function initPlacesMap(lat,lng) {
-        var location = {lat: lat, lng: lng};
+
+    }
+
+    //custom function that can search google places by lat/lng arguments
+    function initPlacesMap(lat, lng) {
+        var location = { lat: lat, lng: lng };
 
         map = new google.maps.Map(document.getElementById('map'), {
-          center: location,
-          zoom: 14
+            center: location,
+            zoom: 13
         });
 
         infowindow = new google.maps.InfoWindow();
         var service = new google.maps.places.PlacesService(map);
         service.nearbySearch({
-          location: location,
-          radius: 5000,
-          type: ['bar']
+            location: location,
+            radius: 5000,
+            type: ['bar']
         }, callback);
-      }
 
-      //need this for geocode(boilerplate from Google Documentation)
-      function geocodeAddress(geocoder, resultsMap) {
+    }
+
+    //need this for geocode(boilerplate from Google Documentation)
+    function geocodeAddress(geocoder, resultsMap) {
         var address = document.getElementById('address').value;
-        geocoder.geocode({'address': address}, function(results, status) {
-          console.log(results);
-          if (status === 'OK') {
-            resultsMap.setCenter(results[0].geometry.location);
-            var marker = new google.maps.Marker({
-              map: resultsMap,
-              position: results[0].geometry.location
-            });
-            var lat = results[0].geometry.location.lat();
-            var lng = results[0].geometry.location.lng();
-            console.log("latitude is: " + lat);
-            console.log("longitude is: " + lng);
-            initPlacesMap(lat,lng);
 
-          } else {
-            alert('Geocode was not successful for the following reason: ' + status);
-          }
-          
-
-        });
-      }
-
-      //need this for Places functionality
-      function callback(results, status) {
-        if (status === google.maps.places.PlacesServiceStatus.OK) {
-          for (var i = 0; i < results.length; i++) {
-            createMarker(results[i]);
-          }
+        //input validation, ensures user only enters a valid zip code
+        var regex=/^[0-9]+$/;
+        if (!address.match(regex)) {
+          alert("Please Enter A Valid Zip Code");
         }
-      }
+        else if (address.length == 0) {
+          alert("Please Enter A Valid Zip Code");
+        }
+        else if(address.length < 5) {g
+          alert("Please Enter A Valid Zip Code");
+        }
+        else{
+        geocoder.geocode({ 'address': address }, function(results, status) {
+            console.log(results);
+            if (status === 'OK') {
+                resultsMap.setCenter(results[0].geometry.location);
+                var marker = new google.maps.Marker({
+                    map: resultsMap,
+                    position: results[0].geometry.location,
+                    animation: google.maps.Animation.DROP,
+                });
+                var lat = results[0].geometry.location.lat();
+                var lng = results[0].geometry.location.lng();
+                console.log("latitude is: " + lat);
+                console.log("longitude is: " + lng);
+                initPlacesMap(lat, lng);
 
-      //need this for Places functionality(creates markers)
-      function createMarker(place) {
-        var placeLoc = place.geometry.location;
-        var marker = new google.maps.Marker({
-          map: map,
-          position: place.geometry.location
+            } else {
+                alert('Geocode was not successful for the following reason: ' + status);
+            }
+
+
         });
+    }
+    }
+
+    //need this for Places functionality
+    function callback(results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+            for (var i = 0; i < results.length; i++) {
+                createMarker(results[i]);
+            }
+        }
+    }
+
+    //need this for Places functionality(creates markers)
+    function createMarker(place) {
+        var photos = place.photos;
+        var placeLoc = place.geometry.location;
+        console.log(place);
+        var marker = new google.maps.Marker({
+            map: map,
+            position: place.geometry.location,
+
+
+
+        });
+
 
         google.maps.event.addListener(marker, 'click', function() {
-          infowindow.setContent(place.name);
-          infowindow.open(map, this);
+            infowindow.setContent('<div><strong>Name:</strong> ' + place.name + '</div>' + '<div><strong>Address: </strong>' + place.vicinity + '</div>' + '<div><strong>Open Now:</strong> ' + place.opening_hours.open_now + '</div>' + '<div><strong>Rating:</strong> ' + place.rating + '</div>' + '<div>' + '<div><img src=' + photos[0].getUrl({ 'maxWidth': 150, 'maxHeight': 150 }) + '></div>');
+            infowindow.open(map, this);
+
         });
-      }
+    }
     </script>
-
-
-
-
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="js/materialize.js"></script>
-  <script src="js/init.js"></script>
+    <script src="js/materialize.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/testingweather.js"></script>
+    <script src="js/firebase.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDH-x4BSPWpRzYjUEpubsuDp1LioaiZp-4&libraries=places&callback=initMap" async defer></script>
+    <!--  <script src="js/googlemap.js"></script> -->
+</body>
 
-  <script src="js/testingweather.js"></script>
-  <script src="js/firebase.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDH-x4BSPWpRzYjUEpubsuDp1LioaiZp-4&libraries=places&callback=initMap" async defer></script>
-
- <!--  <script src="js/googlemap.js"></script> -->
- 
-
-  
-  </body>
 </html>
