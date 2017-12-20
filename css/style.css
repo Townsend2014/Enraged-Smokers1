@@ -23,6 +23,10 @@ input:valid {
   border: 2px solid black;
 }
 
+#status {
+  font-size: 25px;
+}
+
 .button-collapse {
   color: #26a69a;
 }
