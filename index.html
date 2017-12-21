@@ -14,6 +14,8 @@
 </head>
 
 <body>
+
+    <!--                    NAVIGATION MENU WHEN NEEDED       -->
     <!-- <nav class="white" role="navigation">
     <div class="nav-wrapper container">
       <a id="logo-container" href="#" class="brand-logo">Enraged Smoke</a>
@@ -32,7 +34,7 @@
             <div class="container">
                 <br>
                 <br>
-                <h1 class="header center teal-text text-lighten-2" style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">Out and About</h1>
+                <h1 class="header center green-text text-lighten-2" style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">Out and About</h1>
                 <div class="row center">
                     <h4 class="header col s12 light" style="color: white; font-weight: bold; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">Search For Bars and Current Weather Conditions!</h5>
         </div>
@@ -58,28 +60,12 @@
             <h2 class="center green-text"><i class="material-icons z-depth-5 circle">flash_on</i></h2>
              <span id="status">Please enter Zip Code</span><br>
             <div>
-<!--                 <input id="zipCode" type="text" placeholder="85295" />
-                <button class="btn1 waves-effect waves-light green" type="submit" name="action">Submit
-                    <i class="material-icons center">directions_run</i>
-                  </button> -->
                  
                  <input id="address" id="zipCode" type="text" placeholder="Zip Code" type="textbox" class="form-control required">
-                <button class="btn2 waves-effect waves-light green z-depth-5" type="submit" name="action" id="submit" type="button" value="submit">Submit
-                    <i class="material-icons center">directions_run</i>
-                    
+                <button class="btn2 waves-effect waves-light hoverable green z-depth-3 pulse" type="submit" name="action" id="submit" type="button" value="submit" onclick="Materialize.fadeInImage('#results')">Submit</button>
 
-                </button>
-
-
-              
-<!--       <input id="address" type="textbox" value="Sydney, NSW">
-      <input id="submit" type="button" value="submit"> -->
-<!--                 <button class="btn2 waves-effect waves-light green" type="submit" name="action" id="submit">Submit
-                    <i class="material-icons center">directions_run</i>
-                  </button> -->
               </div>
 
-<!--             <p class="light">Make the magic happen</p> -->
           </div>
         </div>
 
@@ -127,9 +113,10 @@
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="smoke2.png" alt="Unsplashed background img 2"></div>
+    <div class="parallax"><img src="smoke3.png" alt="Unsplashed background img 2"></div>
   </div>
 
+  <!--                           RESULTS FROM FIREBASE                   -->
   <div class="container">
     <div class="section">
 
@@ -149,17 +136,9 @@
             </div>
         </div>
     </div>
-    <!-- <div class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <div class="row center">
-          <h5 class="header col s12 light">A solution to future needs</h5>
-        </div>
-      </div>
-    </div>
-    <div class="parallax"><img src="smoke3.png" alt="Unsplashed background img 3"></div>
-  </div> -->
-    <footer class="page-footer teal">
+ 
+    <footer class="page-footer green">
+      <!--                           SUB MENU SYSTEM - LINKS TO SOCIAL       -->
         <!-- <div class="container">
       <div class="row">
         <div class="col l6 s12">

@@ -30,7 +30,7 @@
 
   dataRef.ref().on("child_added", function(childSnapshot) {
 
-    console.log(childSnapshot.val().zipcode);
+    // console.log(childSnapshot.val().zipcode);
 
     // Full list of zipcodes
 
@@ -40,5 +40,5 @@
 
   }, function(errorObject) {
 
-    console.log("Errors handled: " + errorObject.code);
+    // console.log("Errors handled: " + errorObject.code);
   });

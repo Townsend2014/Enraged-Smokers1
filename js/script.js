@@ -71,7 +71,7 @@ function geocodeAddress(geocoder, resultsMap) {
       'address': address
     }, function (results, status) {
       document.getElementById("status").innerHTML = "Zip Code is valid";
-      console.log(results);
+      // console.log(results);
       if (status === 'OK') {
         resultsMap.setCenter(results[0].geometry.location);
         var marker = new google.maps.Marker({
@@ -81,8 +81,8 @@ function geocodeAddress(geocoder, resultsMap) {
         });
         var lat = results[0].geometry.location.lat();
         var lng = results[0].geometry.location.lng();
-        console.log("latitude is: " + lat);
-        console.log("longitude is: " + lng);
+        // console.log("latitude is: " + lat);
+        // console.log("longitude is: " + lng);
         initPlacesMap(lat, lng);
 
       } else {
@@ -108,7 +108,7 @@ function callback(results, status) {
 function createMarker(place) {
   var photos = place.photos;
   var placeLoc = place.geometry.location;
-  console.log(place);
+  // console.log(place);
   var marker = new google.maps.Marker({
     map: map,
     position: place.geometry.location,
@@ -149,14 +149,14 @@ function weatherApp() {
     .done(function (response) {
 
       // Log the queryURL
-      console.log(queryURL);
+      // console.log(queryURL);
 
       // Log the resulting object -- convert returning temp to Fahrenheit
 
-      console.log(response);
+      // console.log(response);
       var kelvin = response.main.temp;
       var fahrenheit = ((kelvin - 273.15) * 1.8) + 32;
-      console.log("FAHRENHEIT:", fahrenheit);
+      // console.log("FAHRENHEIT:", fahrenheit);
       var tempRounded = Math.round(fahrenheit * 100) / 100;
       // Transfer content to HTML
       $(".city").html("<h4>" + response.name + " Weather Details</h4>");
@@ -164,13 +164,14 @@ function weatherApp() {
       $(".humidity").text("Humidity: " + response.main.humidity);
       $(".temp").text("Temperature (F) " + tempRounded);
       $("#results").css({
-        background: "transparent url('http://www.desicomments.com/wallpapers/wp-content/uploads/2016/01/Clouds-And-Grass.jpg')"
-      });
+        background: "transparent url('http://www.desicomments.com/wallpapers/wp-content/uploads/2016/01/Clouds-And-Grass.jpg')"});
+      
+
 
       // Log the data in the console as well
-      console.log("Wind Speed: " + response.wind.speed);
-      console.log("Humidity: " + response.main.humidity);
-      console.log("Temperature (F): " + response.main.temp);
+      // console.log("Wind Speed: " + response.wind.speed);
+      // console.log("Humidity: " + response.main.humidity);
+      // console.log("Temperature (F): " + response.main.temp);
     });
 
 
