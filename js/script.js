@@ -58,19 +58,19 @@ function geocodeAddress(geocoder, resultsMap) {
   var regex = /^[0-9]+$/;
   if (!address.match(regex)) {
     // alert("Please Enter A Valid Zip Code");
-    document.getElementById("status").innerHTML = "Zip Code is not yet valid.";
+    document.getElementById("status").innerHTML = "Zip Code Is Not Yet Valid.";
   } else if (address.length == 0) {
     // alert("Please Enter A Valid Zip Code");
-    document.getElementById("status").innerHTML = "Zip Code is not yet valid.";
+    document.getElementById("status").innerHTML = "Zip Code Is Not Yet Valid.";
   } else if (address.length < 5) {
     g
     // alert("Please Enter A Valid Zip Code");
-    document.getElementById("status").innerHTML = "Zip Code is not yet valid.";
+    document.getElementById("status").innerHTML = "Zip Code Is Not Yet Valid.";
   } else {
     geocoder.geocode({
       'address': address
     }, function (results, status) {
-      document.getElementById("status").innerHTML = "Zip Code is valid";
+      document.getElementById("status").innerHTML = "Zip Code Is Valid";
       // console.log(results);
       if (status === 'OK') {
         resultsMap.setCenter(results[0].geometry.location);
@@ -137,7 +137,7 @@ function weatherApp() {
   var key = "id=524901&APPID=236fc9aafa8c010ed14a369289014cfb";
 
 
-  var queryURL = "http://api.openweathermap.org/data/2.5/weather?zip=" + zipCode + ",us" + "&" + key;
+  var queryURL = "https://api.openweathermap.org/data/2.5/weather?zip=" + zipCode + ",us" + "&" + key;
   // var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=London,us" + "&" + key;
 
 
@@ -159,7 +159,7 @@ function weatherApp() {
       // console.log("FAHRENHEIT:", fahrenheit);
       var tempRounded = Math.round(fahrenheit * 100) / 100;
       // Transfer content to HTML
-      $(".city").html("<h4>" + response.name + " Weather Details</h4>");
+      $(".city").html("<h5>" + response.name + " Weather Details</h5>");
       $(".wind").text("Wind Speed: " + response.wind.speed);
       $(".humidity").text("Humidity: " + response.main.humidity);
       $(".temp").text("Temperature (F) " + tempRounded);
