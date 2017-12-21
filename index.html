@@ -57,12 +57,12 @@
       <div class="row">
         <div class="col s12 m2">
           <div class="icon-block">
-            <h2 class="center green-text"><i class="material-icons z-depth-5 circle">flash_on</i></h2>
+            <h2 class="center green-text"><i class="material-icons z-depth-3 circle">flash_on</i></h2>
              <span id="status">Please enter Zip Code</span><br>
             <div>
                  
                  <input id="address" id="zipCode" type="text" placeholder="Zip Code" type="textbox" class="form-control required">
-                <button class="btn2 waves-effect waves-light hoverable green z-depth-3 pulse" type="submit" name="action" id="submit" type="button" value="submit" onclick="Materialize.fadeInImage('#results')">Submit</button>
+                <button class="btn2 waves-effect waves-light hoverable green z-depth-3 pulse" type="submit" name="action" id="submit" type="button" value="submit" onclick="Materialize.fadeInImage('#results'), Materialize.toast('Success!', 2000, 'rounded')">Submit</button>
 
               </div>
 
@@ -71,7 +71,7 @@
 
         <div class="col s12 m7">
           <div class="icon-block">
-            <h2 class="center green-text"><i class="material-icons z-depth-5 circle">wallpaper</i></h2>
+            <h2 class="center green-text"><i class="material-icons z-depth-3 circle">wallpaper</i></h2>
              <h5 class="center">Bars</h5>
 
 
@@ -85,7 +85,7 @@
         
          <div class="col s12 m3" class="flow-text">
           <div class="icon-block">
-            <h2 class="center green-text"><i class="material-icons z-depth-5 circle">cloud_queue</i></h2>
+            <h2 class="center green-text"><i class="material-icons z-depth-3 circle">cloud_queue</i></h2>
             <h5 class="center">Current Weather</h5>
             <div id="results" class="z-depth-5">
               <div class="city"></div>

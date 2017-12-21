@@ -164,7 +164,7 @@ function weatherApp() {
       $(".humidity").text("Humidity: " + response.main.humidity);
       $(".temp").text("Temperature (F) " + tempRounded);
       $("#results").css({
-        background: "transparent url('http://www.desicomments.com/wallpapers/wp-content/uploads/2016/01/Clouds-And-Grass.jpg')"});
+        background: "transparent url('https://media-cdn.tripadvisor.com/media/photo-s/0e/fe/11/76/peaceful.jpg')"});
       
 
 
@@ -176,3 +176,4 @@ function weatherApp() {
 
 
 };
+
